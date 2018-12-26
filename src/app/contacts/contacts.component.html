@@ -1,0 +1,33 @@
+<div class="container spacer">
+  <div class="card">
+    <div class="card-heading bg-primary text-white padd">Liste des contacts</div>
+    <div class="card-body">
+      <div class="form-group">
+        <div class="input-group col-sm-4">
+        <input class="form-control" type="text" placeholder="termes de recherche" [(ngModel)]="motCle"/>
+        <span class="input-group-btn">
+          <button type="button" (click)="chercher()" class="btn btn-primary">Rechercher</button>
+        </span>
+        </div>
+      </div>
+      <div>
+
+      </div>
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th><th>Nom</th> <th>Prenom</th><th>Email</th>
+        </tr>
+        <tr *ngFor="let c of contacts.content">
+          <td>{{c.id}}</td>
+          <td>{{c.nom}}</td>
+          <td>{{c.prenom}}</td>
+          <td>{{c.email}}</td>
+        </tr>
+      </table>
+        <div class="nav nav-pills">
+            <ngb-pagination [collectionSize]="lesElements*10" [page]="page" (pageChange)="gotoPage($event)">
+            </ngb-pagination>
+        </div>
+    </div>
+  </div>
+</div>
